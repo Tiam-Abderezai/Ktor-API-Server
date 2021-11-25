@@ -1,5 +1,6 @@
 package com.example.plugins
 
+import com.example.rotues.randomImage
 import io.ktor.routing.*
 import io.ktor.http.*
 import io.ktor.content.*
@@ -9,14 +10,12 @@ import io.ktor.response.*
 import io.ktor.request.*
 
 fun Application.configureRouting() {
-    
+
 
     routing {
-        get("/") {
-                call.respondText("Hello World!")
-            }
+        randomImage()
         // Static plugin. Try to access `/static/index.html`
-        static("/static") {
+        static {
             resources("static")
         }
     }
